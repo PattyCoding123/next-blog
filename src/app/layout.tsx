@@ -3,6 +3,7 @@ import { type Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "./theme-provider";
 
 export const metadata: Metadata = {
   title: "My Next Blog",
@@ -27,19 +28,24 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <>
-      <html lang="en">
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
-          )}
+    <html lang="en">
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem={true}
         >
+          {/* Makes website follow theme of user system */}
           <div className="relative flex min-h-screen flex-col">
             <div className="flex-1">{children}</div>
           </div>
-        </body>
-      </html>
-    </>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
