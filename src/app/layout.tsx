@@ -4,7 +4,7 @@ import { Inter as FontSans } from "next/font/google";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "../components/theme-provider";
+import { ThemeProvider } from "./theme-provider";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
