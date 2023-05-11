@@ -5,6 +5,7 @@ import { Inter as FontSans } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "./theme-provider";
+import MainNavbar from "@/components/main-nav";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -36,6 +37,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
+        <header>
+          <MainNavbar />
+        </header>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
