@@ -14,6 +14,11 @@ const items = [
   },
 ];
 
+/**
+ * The following is a navigation bar that is used in the root layout.
+ * It should be responsive in design.
+ * @returns {JSX.Element} The main navigation bar.
+ */
 export default function MainNavbar() {
   return (
     <nav className="container sticky top-0 flex items-center justify-between gap-6 border-b-2 py-2 md:gap-10">
