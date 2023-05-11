@@ -37,14 +37,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        <header>
-          <MainNavbar />
-        </header>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem={true}
         >
+          <header>
+            <MainNavbar />
+          </header>
           {/* Makes website follow theme of user system */}
           <div className="relative flex min-h-screen flex-col">
             <div className="flex-1">{children}</div>
