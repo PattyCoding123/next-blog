@@ -19,7 +19,9 @@ export default function MainNavbar() {
     <nav className="container sticky top-0 flex items-center justify-between gap-6 border-b-2 py-2 md:gap-10">
       <Link href="/" className="flex items-center space-x-2 text-lg">
         <Icons.logo />
-        <span className="inline-block font-bold">{siteConfig.title}</span>
+        <span className="hidden font-bold sm:inline-block">
+          {siteConfig.title}
+        </span>
       </Link>
       <div className="flex items-center justify-center gap-4">
         {items.map((item, index) => (
@@ -30,6 +32,7 @@ export default function MainNavbar() {
             target="_blank"
             rel="noopener noreferrer"
           >
+            {/* shrink-0 to prevent the icon from shrinking smaller than original size */}
             <span className="flex shrink-0 items-center justify-center text-lg font-medium text-foreground group-hover:text-indigo-600">
               <item.Icon className="h-8 w-8" />
             </span>
