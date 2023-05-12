@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { blogPostSchema } from "@/lib/validators/blog-post";
 import { ZodError } from "zod";
 
-const postsDirectory = path.join(process.cwd(), "blogposts");
+const postsDirectory = path.join(process.cwd(), "/src/blogposts");
 
 export function getSortedPostsData() {
   // Get file names under /posts
