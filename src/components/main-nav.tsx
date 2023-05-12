@@ -19,7 +19,10 @@ const items = [
 export default function MainNavbar() {
   return (
     <nav className="container sticky top-0 flex items-center justify-between gap-6 border-b-2 py-2 md:gap-10">
-      <Link href="/" className="prose prose-xl flex items-center space-x-2">
+      <Link
+        href="/"
+        className="prose prose-xl flex items-center space-x-2 text-foreground"
+      >
         <Icons.logo className="h-8 w-8" />
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.title}
