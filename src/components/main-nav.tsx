@@ -32,14 +32,14 @@ export default function MainNavbar() {
         {items.map((item, index) => (
           <Link
             className="group prose prose-sm flex gap-3 rounded-full p-2 font-semibold leading-6
-             text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+             text-gray-700 hover:bg-gray-50 dark:hover:bg-none"
             key={index}
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
           >
             {/* shrink-0 to prevent the icon from shrinking smaller than original size */}
-            <span className="flex shrink-0 border-spacing-1 items-center justify-center text-lg font-medium text-foreground group-hover:text-indigo-600">
+            <span className="flex shrink-0 border-spacing-1 items-center justify-center text-lg font-medium text-foreground group-hover:text-indigo-600 dark:hover:text-black">
               <item.Icon className="h-8 w-8" />
             </span>
           </Link>
