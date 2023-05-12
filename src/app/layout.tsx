@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "./theme-provider";
 import MainNavbar from "@/components/main-nav";
+import ProfilePicture from "@/components/profile-picture";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <header>
             <MainNavbar />
+            <ProfilePicture />
           </header>
           {/* Makes website follow theme of user system */}
           <div className="relative flex min-h-screen flex-col">
