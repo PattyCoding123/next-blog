@@ -5,10 +5,12 @@ import { siteConfig } from "@/config/site";
 
 const items = [
   {
+    site: "github",
     href: "https://github.com/PattyCoding123",
     Icon: Icons.github,
   },
   {
+    site: "linkedin",
     href: "https://www.linkedin.com/in/patrick-ducusin-879b25208/",
     Icon: Icons.linkedin,
   },
@@ -38,6 +40,7 @@ export default function MainNavbar() {
             target="_blank"
             rel="noopener noreferrer"
           >
+            <span className="sr-only">{item.site}</span>
             {/* shrink-0 to prevent the icon from shrinking smaller than original size */}
             <span className="flex shrink-0 border-spacing-1 items-center justify-center text-lg font-medium text-foreground group-hover:text-indigo-600 dark:hover:text-black">
               <item.Icon className="h-8 w-8" />
