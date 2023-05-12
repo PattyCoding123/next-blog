@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import { blogPostSchema } from "@/lib/validators/blog-post";
 import { ZodError } from "zod";
 
+// Since we use src directory as root, we need to specify it in the args.
 const postsDirectory = path.join(process.cwd(), "/src/blogposts");
 
 export function getSortedPostsData() {
