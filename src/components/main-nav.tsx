@@ -40,9 +40,9 @@ export default function MainNavbar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="sr-only">{item.site}</span>
             {/* shrink-0 to prevent the icon from shrinking smaller than original size */}
             <span className="flex shrink-0 border-spacing-1 items-center justify-center text-lg font-medium text-foreground group-hover:text-indigo-600 dark:hover:text-black">
+              <span className="sr-only">{item.site}</span>
               <item.Icon className="h-8 w-8" />
             </span>
           </Link>
