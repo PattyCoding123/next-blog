@@ -23,7 +23,7 @@ export default function MainNavbar() {
     <nav className="container sticky top-0 flex items-center justify-between gap-6 border-b-2 py-2 md:gap-10">
       <Link
         href="/"
-        className="prose prose-xl flex items-center space-x-2 text-foreground"
+        className="flex items-center space-x-2 text-xl text-foreground"
       >
         <Icons.logo className="h-8 w-8" />
         <span className="hidden font-bold sm:inline-block">
@@ -33,7 +33,7 @@ export default function MainNavbar() {
       <div className="flex items-center justify-center gap-4">
         {items.map((item, index) => (
           <Link
-            className="group prose prose-sm flex gap-3 rounded-full p-2 font-semibold leading-6
+            className="group flex gap-3 rounded-full p-2 text-sm font-semibold leading-6
              text-gray-700 hover:bg-gray-50 dark:hover:bg-none"
             key={index}
             href={item.href}
