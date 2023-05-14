@@ -31,14 +31,16 @@ export function generateMetadata({ params }: PostPageProps) {
 
 export default async function PostPage({ params }: PostPageProps) {
   const posts = getSortedPostsData(); // Deduped request.
-  const { postId } = params;
+  const { postId } = params; // From params object.
 
   if (!posts.find((post) => post.id === postId)) {
-    notFound();
+    notFound(); // Redirect user to 404 page.
   }
 
+  // Get specific data for this post. Must be awaited due to remark.
   const { title, date, contentHtml } = await getPostData(postId);
 
+  // Format publish date for post.
   const formattedDate = getFormattedDate(date);
 
   return (
