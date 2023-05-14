@@ -5,6 +5,18 @@ import getFormattedDate from "@/lib/get-formatted-date";
 import { Icons } from "@/components/icons";
 import { getPostData, getSortedPostsData } from "@/lib/posts-data-parser";
 
+// Allows us to generate static paths for each post,
+// helping us optimize our website by statically generating routes
+// at build time instead of on-demand at request time.
+export function generateStaticParams() {
+  const posts = getSortedPostsData(); // Deduped request.
+  return posts.map((post) => ({
+    params: {
+      postId: post.id,
+    },
+  }));
+}
+
 // Because this page is dynamic, we will have access to a params object.
 // This object will contain the postId.
 interface PostPageProps {
