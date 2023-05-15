@@ -2,11 +2,11 @@ import "@/styles/globals.css";
 import { type Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 
+import MainNavbar from "@/components/main-nav";
+import ProfilePicture from "@/components/profile-picture";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "./theme-provider";
-import MainNavbar from "@/components/main-nav";
-import ProfilePicture from "@/components/profile-picture";
 
 export const metadata: Metadata = {
   title: siteConfig.title,

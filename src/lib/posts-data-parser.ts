@@ -1,11 +1,11 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
 import html from "remark-html";
+import { remark } from "remark";
+import { ZodError } from "zod";
 
 import { type BlogPost, blogPostSchema } from "@/lib/validators/blog-post";
-import { ZodError } from "zod";
 
 // Since we use src directory as root, we need to specify it in the args.
 const postsDirectory = path.join(process.cwd(), "/src/blogposts");
