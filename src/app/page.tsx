@@ -1,5 +1,9 @@
 import Posts from "@/components/posts";
 
+// Route segment configuration. This allows us to revalidate (ISR)
+// data that we acquired WITHOUT using the fetch API.
+export const revalidate = 86400; // Revalidate once a day
+
 export default function Home() {
   return (
     <main className="mx-auto px-6">
