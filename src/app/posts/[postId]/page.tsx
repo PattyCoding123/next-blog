@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import getFormattedDate from "@/lib/get-formatted-date";
 import { Icons } from "@/components/icons";
 import { getPostData, getSortedPostsData } from "@/lib/posts-data-parser";
+import { type Metadata } from "next";
 
 // Allows us to generate static paths for each post,
 // helping us optimize our website by statically generating routes
@@ -26,7 +27,7 @@ interface PostPageProps {
 }
 
 // Generate dynamic metadata for each post.
-export function generateMetadata({ params }: PostPageProps) {
+export function generateMetadata({ params }: PostPageProps): Metadata {
   const posts = getSortedPostsData(); // Deduped request.
   const { postId } = params;
   const post = posts.find((post) => post.id === postId);
