@@ -11,6 +11,7 @@ import ProfilePicture from "@/components/profile-picture";
 export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
+  creator: "Patrick",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
+        {/* Makes website follow theme of user system */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -47,7 +49,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <MainNavbar />
             <ProfilePicture />
           </header>
-          {/* Makes website follow theme of user system */}
           <div className="relative flex min-h-screen flex-col">
             <div className="flex-1">{children}</div>
           </div>
