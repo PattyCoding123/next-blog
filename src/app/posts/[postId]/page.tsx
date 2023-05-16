@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { type Metadata } from "next";
+import "highlight.js/styles/github-dark.css"; // For styling code blocks.
 
 import getFormattedDate from "@/lib/get-formatted-date";
 import { Icons } from "@/components/icons";
 import { getPostsMeta, getPostByName } from "@/lib/posts-data-parser";
-import { type Metadata } from "next";
 
 // Allows us to generate static paths for each post,
 // helping us optimize our website by statically generating routes
