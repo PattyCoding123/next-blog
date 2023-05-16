@@ -18,7 +18,7 @@ interface TagPageProps {
 // helping us optimize our website by statically generating routes
 // at build time instead of on-demand at request time.
 export async function generateStaticParams() {
-  const postsMetadata = await getPostsMetadata(); // Deduped request.
+  const postsMetadata = await getPostsMetadata(); // * Deduped request.
 
   if (!postsMetadata) return []; // Incase there are no posts.
 
@@ -34,7 +34,7 @@ export function generateMetadata({ params }: TagPageProps): Metadata {
 }
 
 export default async function TagPage({ params: { tag } }: TagPageProps) {
-  const postsMetadata = await getPostsMetadata(); // Deduped request.
+  const postsMetadata = await getPostsMetadata(); // * Deduped request.
 
   if (!postsMetadata) {
     return <p className="mt-10 text-center">Sorry, no posts were fetched.</p>;

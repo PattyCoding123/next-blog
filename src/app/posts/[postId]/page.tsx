@@ -21,7 +21,7 @@ interface PostPageProps {
 // helping us optimize our website by statically generating routes
 // at build time instead of on-demand at request time.
 export async function generateStaticParams() {
-  const postsMetadata = await getPostsMetadata(); // Deduped request.
+  const postsMetadata = await getPostsMetadata(); // * Deduped request.
 
   if (!postsMetadata) return []; // Incase there are no posts.
 
@@ -37,7 +37,7 @@ export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
   const { postId } = params;
-  const post = await getPostByName(`${postId}.mdx`); // Deduped request.
+  const post = await getPostByName(`${postId}.mdx`); // * Deduped request.
 
   if (!post) {
     return {
@@ -52,7 +52,7 @@ export async function generateMetadata({
 
 export default async function PostPage({ params }: PostPageProps) {
   const { postId } = params; // From params object.
-  const post = await getPostByName(`${postId}.mdx`); // Deduped request.
+  const post = await getPostByName(`${postId}.mdx`); // * Deduped request.
 
   if (!post) {
     notFound(); // Redirect user to 404 page.

@@ -10,7 +10,7 @@ import { type BlogPostMetadata, type BlogPost } from "./validators/blog-post";
 import { type FileTree, fileTreeSchema } from "./validators/file-tree";
 
 /**
- * This function will fetch the MDX file from our GitHub repo and compile it.
+ * This function will fetch a MDX file from our GitHub repo and compile it.
  */
 export async function getPostByName(
   fileName: string
