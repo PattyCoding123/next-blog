@@ -1,11 +1,13 @@
-import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings/lib";
 import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
+import { compileMDX } from "next-mdx-remote/rsc";
 
+import Video from "@/components/video";
+import CustomImage from "@/components/custom-image";
+import { env } from "@/env.mjs";
 import { type BlogPostMetadata, type BlogPost } from "./validators/blog-post";
 import { type FileTree, fileTreeSchema } from "./validators/file-tree";
-import { env } from "@/env.mjs";
 
 export async function getPostByName(
   fileName: string
@@ -30,10 +32,27 @@ export async function getPostByName(
   // ! Add Error Handling Later
   if (rawMDX === "404: Not Found") return undefined;
 
+  /**
+   * The compileMDX function returns an object with two properties:
+   * - frontmatter: The frontmatter of the MDX file (if any)
+   * - content: The compiled MDX content
+   *
+   * Additionally, we can pass in components and options to the compileMDX function.
+   * Components include any JSX element that were included in the MDX file that we
+   * defined in our app. For instance, any <Video /> component that we defined in our
+   * MDX file will be passed into the compileMDX function as a component. We can then
+   * pass in a component object to the compileMDX function that will be used to render
+   * that <Video /> component.
+   *
+   */
   const { frontmatter, content } = await compileMDX<
     Omit<BlogPostMetadata, "id">
   >({
     source: rawMDX,
+    components: {
+      Video,
+      CustomImage,
+    },
     options: {
       parseFrontmatter: true,
       mdxOptions: {

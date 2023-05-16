@@ -17,5 +17,21 @@ const config = {
   experimental: {
     appDir: true,
   },
+  /**
+   * For images from outside the public folder, we will specify the remotePatterns
+   * to match the domain of the image URL.
+   *
+   * @see https://nextjs.org/docs/pages/building-your-application/optimizing/images#remote-images
+   */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        port: "",
+        pathname: "/PattyCoding123/blog-posts/main/images/**",
+      },
+    ],
+  },
 };
 export default config;
