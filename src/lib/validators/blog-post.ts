@@ -1,17 +1,17 @@
+import type { JSXElementConstructor, ReactElement } from "react";
 import { z } from "zod";
 
-export const blogPostMetadataSchema = z.object({
+export const BlogPostMetadatadataSchema = z.object({
   id: z.string(),
   title: z.string(),
   date: z.string(),
-  tags: z.string(),
+  tags: z.array(z.string()),
 });
 
-export type BlogPostMeta = z.infer<typeof blogPostMetadataSchema>;
+export type BlogPostMetadata = z.infer<typeof BlogPostMetadatadataSchema>;
 
-export const blogPostSchema = z.object({
-  metadata: blogPostMetadataSchema,
-  content: z.string(),
-});
-
-export type BlogPost = z.infer<typeof blogPostSchema>;
+// ReactElement any is for the content of the blog post from MDX file.
+export type BlogPost = {
+  metadata: BlogPostMetadata;
+  content: ReactElement<any, string | JSXElementConstructor<any>>;
+};
