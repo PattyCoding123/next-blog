@@ -19,6 +19,9 @@ dependencies:
   next-mdx-remote:
     specifier: ^4.4.1
     version: 4.4.1(react-dom@18.2.0)(react@18.2.0)
+  next-sitemap:
+    specifier: ^4.0.9
+    version: 4.0.9(@next/env@13.4.2)(next@13.4.2)
   next-themes:
     specifier: ^0.2.1
     version: 0.2.1(next@13.4.2)(react-dom@18.2.0)(react@18.2.0)
@@ -115,6 +118,10 @@ packages:
     dependencies:
       regenerator-runtime: 0.13.11
     dev: true
+
+  /@corex/deepmerge@4.0.43:
+    resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
+    dev: false
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.40.0):
     resolution: {integrity: sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA==}
@@ -2833,6 +2840,20 @@ packages:
       vfile-matter: 3.0.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /next-sitemap@4.0.9(@next/env@13.4.2)(next@13.4.2):
+    resolution: {integrity: sha512-8pbcEe4vrmgGEc3beVbrSqd8mTQ9lCsGxP+AOlArrGmeLkKD4TbSR41R2unQHHSTkBG8cQ/7gjKkdLBlzwtu6g==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      '@next/env': '*'
+      next: '*'
+    dependencies:
+      '@corex/deepmerge': 4.0.43
+      '@next/env': 13.4.2
+      minimist: 1.2.8
+      next: 13.4.2(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
   /next-themes@0.2.1(next@13.4.2)(react-dom@18.2.0)(react@18.2.0):
