@@ -63,12 +63,16 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <main className="prose prose-xl prose-slate mx-auto px-6 dark:prose-invert">
-      <h2 className="mb-0 mt-4 text-3xl">{metadata.title}</h2>
+      <h2 className="mb-0 mt-12 text-3xl">{metadata.title}</h2>
       <p className="mt-0 text-sm">{formattedDate}</p>
       <article>{content}</article>
       <section>
         <h3>Related:</h3>
-        <div className="flex gap-4">{metadata.tags}</div>
+        <div className="flex gap-4">
+          {metadata.tags.map((tag) => (
+            <p key={tag}>{tag}</p>
+          ))}
+        </div>
       </section>
       <p>
         <Link className="flex items-center justify-start" href="/">
