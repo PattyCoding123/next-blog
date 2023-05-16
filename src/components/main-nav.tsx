@@ -20,7 +20,7 @@ const items = [
 // the main navigation bar of the website. It is a RSC.
 export default function MainNavbar() {
   return (
-    <nav className="container sticky top-0 flex items-center justify-between gap-6 border-b-2 py-2 md:gap-10">
+    <nav className="container sticky top-0 z-10 flex items-center justify-between gap-6 border-b-2 bg-background py-2 md:gap-10">
       <Link
         href="/"
         className="flex items-center space-x-2 text-xl text-foreground"
