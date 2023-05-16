@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-import { type BlogPost } from "@/lib/validators/blog-post";
+import { type BlogPostMetadata } from "@/lib/validators/blog-post";
 import getFormattedDate from "@/lib/get-formatted-date";
 
 type Props = {
-  post: BlogPost;
+  post: BlogPostMetadata;
 };
 
 // Return a list item for a blog post with a link to the post.

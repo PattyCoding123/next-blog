@@ -3,14 +3,17 @@ import { notFound } from "next/navigation";
 
 import getFormattedDate from "@/lib/get-formatted-date";
 import { Icons } from "@/components/icons";
-import { getPostData, getSortedPostsData } from "@/lib/posts-data-parser";
+import { getPostsMeta, getPostByName } from "@/lib/posts-data-parser";
 import { type Metadata } from "next";
 
 // Allows us to generate static paths for each post,
 // helping us optimize our website by statically generating routes
 // at build time instead of on-demand at request time.
-export function generateStaticParams() {
-  const posts = getSortedPostsData(); // Deduped request.
+export async function generateStaticParams() {
+  const posts = await getPostsMeta(); // Deduped request.
+
+  if (!posts) return []; // Incase there are no posts.
+
   return posts.map((post) => ({
     params: {
       postId: post.id,
@@ -27,48 +30,52 @@ interface PostPageProps {
 }
 
 // Generate dynamic metadata for each post.
-export function generateMetadata({ params }: PostPageProps): Metadata {
-  const posts = getSortedPostsData(); // Deduped request.
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
   const { postId } = params;
-  const post = posts.find((post) => post.id === postId);
+  const post = await getPostByName(`${postId}.mdx`); // Deduped request.
 
   if (!post) {
     return {
       title: "Post not found",
     };
   }
+
   return {
-    title: post.title,
+    title: post.metadata.title,
   };
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const posts = getSortedPostsData(); // Deduped request.
   const { postId } = params; // From params object.
+  const post = await getPostByName(`${postId}.mdx`); // Deduped request.
 
-  if (!posts.find((post) => post.id === postId)) {
+  if (!post) {
     notFound(); // Redirect user to 404 page.
   }
 
-  // Get specific data for this post. Must be awaited due to remark.
-  const { title, date, contentHtml } = await getPostData(postId);
+  // Get specific data for this post
+  const { metadata, content } = post;
 
   // Format publish date for post.
-  const formattedDate = getFormattedDate(date);
+  const formattedDate = getFormattedDate(metadata.date);
 
   return (
     <main className="prose prose-xl prose-slate mx-auto px-6 dark:prose-invert">
-      <h1 className="mb-0 mt-4 text-3xl">{title}</h1>
-      <p className="mt-0">{formattedDate}</p>
-      <article>
-        <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
-        <p>
-          <Link className="flex items-center justify-start" href="/">
-            <Icons.arrowLeft />
-            Go back to home page
-          </Link>
-        </p>
-      </article>
+      <h2 className="mb-0 mt-4 text-3xl">{metadata.title}</h2>
+      <p className="mt-0 text-sm">{formattedDate}</p>
+      <article>{content}</article>
+      <section>
+        <h3>Related:</h3>
+        <div className="flex gap-4">{metadata.tags}</div>
+      </section>
+      <p>
+        <Link className="flex items-center justify-start" href="/">
+          <Icons.arrowLeft />
+          Go back to home page
+        </Link>
+      </p>
     </main>
   );
 }
