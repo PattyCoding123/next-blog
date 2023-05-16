@@ -5,8 +5,8 @@ import { Inter as FontSans } from "next/font/google";
 import MainNavbar from "@/components/main-nav";
 import ProfilePicture from "@/components/profile-picture";
 import { siteConfig } from "@/config/site";
+import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "./theme-provider";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
