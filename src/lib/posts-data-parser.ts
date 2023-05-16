@@ -27,8 +27,13 @@ export async function getPostByName(
   // ! Add Error Handling Later
   if (rawMDX === "404: Not Found") return undefined;
 
-  const { frontmatter, content } = await compileMDX<BlogPostMetadata>({
+  const { frontmatter, content } = await compileMDX<
+    Omit<BlogPostMetadata, "id">
+  >({
     source: rawMDX,
+    options: {
+      parseFrontmatter: true,
+    },
   });
 
   const id = fileName.replace(/\.mdx$/, "");
@@ -71,14 +76,19 @@ export async function getPostsMeta(): Promise<BlogPostMetadata[] | undefined> {
       .map((obj) => obj.path)
       .filter((path) => path.endsWith(".mdx"));
 
-    const posts: BlogPostMetadata[] = [];
+    const postsMetadata: BlogPostMetadata[] = [];
 
-    for (const file of filesArray) {
-      const post = await getPostByName(file);
+    const posts = await Promise.all(
+      filesArray.map((file) => getPostByName(file))
+    );
+
+    for (const post of posts) {
       if (post) {
-        posts.push(post.metadata);
+        postsMetadata.push(post.metadata);
       }
     }
+
+    return postsMetadata;
   } catch (e) {
     new Response("Error fetching posts meta data", { status: 500 });
   }
