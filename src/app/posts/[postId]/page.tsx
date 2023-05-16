@@ -5,19 +5,19 @@ import "highlight.js/styles/github-dark.css"; // For styling code blocks.
 
 import getFormattedDate from "@/lib/get-formatted-date";
 import { Icons } from "@/components/icons";
-import { getPostsMeta, getPostByName } from "@/lib/posts-data-parser";
+import { getPostsMetadata, getPostByName } from "@/lib/posts-data-parser";
 
 // Allows us to generate static paths for each post,
 // helping us optimize our website by statically generating routes
 // at build time instead of on-demand at request time.
 export async function generateStaticParams() {
-  const posts = await getPostsMeta(); // Deduped request.
+  const postsMetadata = await getPostsMetadata(); // Deduped request.
 
-  if (!posts) return []; // Incase there are no posts.
+  if (!postsMetadata) return []; // Incase there are no posts.
 
-  return posts.map((post) => ({
+  return postsMetadata.map((metadata) => ({
     params: {
-      postId: post.id,
+      postId: metadata.id,
     },
   }));
 }
@@ -71,16 +71,16 @@ export default async function PostPage({ params }: PostPageProps) {
         <h3>Related:</h3>
         <div className="flex gap-4">
           {metadata.tags.map((tag) => (
-            <p key={tag}>{tag}</p>
+            <Link key={tag} href={`/tags/${tag}`}>
+              {tag}
+            </Link>
           ))}
         </div>
       </section>
-      <p>
-        <Link className="flex items-center justify-start" href="/">
-          <Icons.arrowLeft />
-          Go back to home page
-        </Link>
-      </p>
+      <Link className="my-8 flex items-center justify-start" href="/">
+        <Icons.arrowLeft />
+        Go back to home page
+      </Link>
     </main>
   );
 }

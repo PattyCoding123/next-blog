@@ -67,7 +67,9 @@ export async function getPostByName(
 }
 
 // Request GITHUB blog meta data from our blog posts repo.
-export async function getPostsMeta(): Promise<BlogPostMetadata[] | undefined> {
+export async function getPostsMetadata(): Promise<
+  BlogPostMetadata[] | undefined
+> {
   try {
     const res = await fetch(
       "https://api.github.com/repos/PattyCoding123/blog-posts/git/trees/main?recursive=1",

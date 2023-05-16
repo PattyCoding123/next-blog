@@ -1,8 +1,8 @@
-import { getPostsMeta } from "@/lib/posts-data-parser";
+import { getPostsMetadata } from "@/lib/posts-data-parser";
 import ListItem from "./list-item";
 
 export default async function Posts() {
-  const posts = await getPostsMeta();
+  const posts = await getPostsMetadata();
 
   if (!posts) {
     return (
