@@ -7,6 +7,8 @@ import getFormattedDate from "@/lib/get-formatted-date";
 import { Icons } from "@/components/icons";
 import { getPostsMetadata, getPostByName } from "@/lib/posts-data-parser";
 
+export const revalidate = 86400; // 24 hours
+
 // Because the route is dynamic, we will have access to a params object.
 // This object will contain the postId.
 interface PostPageProps {

@@ -6,11 +6,11 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<!-- <p align="center">
-  <a href="https://degreedoor.vercel.app/">
-    <img src="https://i.imgur.com/PUIKaAn.png" alt="logo" width="300"/>
+<p align="center">
+  <a href="https://next-blog-pattycoding123.vercel.app/">
+    <img src="assets/display-website.png" alt="website display"/>
   </a>
-</p> -->
+</p>
 <div align="center">
   
 <h1 align="center">My Next Blog</h1>
@@ -19,7 +19,7 @@
     A blog website that utilizes many of the new features in Next13, including the now stable app directory! The main feature includes compiling MDX files to display on the website. I will try to create as many posts as I can for this website. 
     <br />
     <br />
-    <a href="#">Live Demo</a>
+    <a href="https://next-blog-pattycoding123.vercel.app/">Live Website</a>
   </p>
 </div>
 
