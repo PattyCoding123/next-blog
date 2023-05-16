@@ -7,6 +7,14 @@ import getFormattedDate from "@/lib/get-formatted-date";
 import { Icons } from "@/components/icons";
 import { getPostsMetadata, getPostByName } from "@/lib/posts-data-parser";
 
+// Because the route is dynamic, we will have access to a params object.
+// This object will contain the postId.
+interface PostPageProps {
+  params: {
+    postId: string;
+  };
+}
+
 // Allows us to generate static paths for each post,
 // helping us optimize our website by statically generating routes
 // at build time instead of on-demand at request time.
@@ -20,14 +28,6 @@ export async function generateStaticParams() {
       postId: metadata.id,
     },
   }));
-}
-
-// Because this page is dynamic, we will have access to a params object.
-// This object will contain the postId.
-interface PostPageProps {
-  params: {
-    postId: string;
-  };
 }
 
 // Generate dynamic metadata for each post.

@@ -9,6 +9,9 @@ import { env } from "@/env.mjs";
 import { type BlogPostMetadata, type BlogPost } from "./validators/blog-post";
 import { type FileTree, fileTreeSchema } from "./validators/file-tree";
 
+/**
+ * This function will fetch the MDX file from our GitHub repo and compile it.
+ */
 export async function getPostByName(
   fileName: string
 ): Promise<BlogPost | undefined> {
@@ -24,12 +27,10 @@ export async function getPostByName(
     }
   );
 
-  // ! Add Error Handling Later
   if (!res.ok) return undefined;
 
   const rawMDX = await res.text();
 
-  // ! Add Error Handling Later
   if (rawMDX === "404: Not Found") return undefined;
 
   /**
@@ -101,23 +102,27 @@ export async function getPostsMetadata(): Promise<
       }
     );
 
-    // ! Add Error Handling Later
     if (!res.ok) {
       return undefined;
     }
 
+    // Parse the response into a FileTree object using the fileTreeSchema validator.
     const repoFileTree: FileTree = fileTreeSchema.parse(await res.json());
 
+    // Only get the files that end with .mdx
     const filesArray = repoFileTree.tree
       .map((obj) => obj.path)
       .filter((path) => path.endsWith(".mdx"));
 
     const postsMetadata: BlogPostMetadata[] = [];
 
+    // Get the metadata for each post concurrently.
     const posts = await Promise.all(
+      // Each "file" will contain .mdx at the end of the string.
       filesArray.map((file) => getPostByName(file))
     );
 
+    // Only push the metadata to the postsMetadata array if the post exists.
     for (const post of posts) {
       if (post) {
         postsMetadata.push(post.metadata);

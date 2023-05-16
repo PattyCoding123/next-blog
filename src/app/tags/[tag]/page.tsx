@@ -7,6 +7,7 @@ import { Icons } from "@/components/icons";
 
 export const revalidate = 86400; // 24 hours
 
+// Receive the tag from the params object. (dynamic route)
 interface TagPageProps {
   params: {
     tag: string;
