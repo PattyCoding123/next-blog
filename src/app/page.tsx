@@ -10,6 +10,7 @@ export default function Home() {
       <p className="mb-12 mt-12 text-center text-3xl text-foreground">
         Hello and Welcome to my Blog!
       </p>
+      {/* @ts-expect-error Async Server Component */}
       <Posts />
     </main>
   );
