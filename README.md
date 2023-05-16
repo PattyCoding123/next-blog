@@ -1,28 +1,126 @@
-# Create T3 App
+<div id="top"></div>
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+<!-- PROJECT SHIELDS -->
 
-## What's next? How do I make an app with this?
+[![MIT License][license-shield]][license-url]
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+<!-- PROJECT LOGO -->
+<br />
+<!-- <p align="center">
+  <a href="https://degreedoor.vercel.app/">
+    <img src="https://i.imgur.com/PUIKaAn.png" alt="logo" width="300"/>
+  </a>
+</p> -->
+<div align="center">
+  
+<h1 align="center">My Next Blog</h1>
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+  <p align="center">
+    A blog website that utilizes many of the new features in Next13, including the now stable app directory! The main feature includes compiling MDX files to display on the website. I will try to create as many posts as I can for this website. 
+    <br />
+    <br />
+    <a href="#">Live Demo</a>
+  </p>
+</div>
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#features">Features</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#authors">Authors</a></li>
+  </ol>
+</details>
 
-## Learn More
+<!-- ABOUT THE PROJECT -->
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## About The Project
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+The project is a fullstack web application that will display blog posts from a remote location. I utilize the GitHub API to fetch the blog posts from one of my repos. The files for these posts are in MDX files, a superset of MD which allows the use of
+JSX elements right along side markdown syntax. Coupled with the new yet stable NextJS app directory, this website is making use of all the bleeding-edge tech!
+<br><br>
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+For the technology stack, the project was bootstrapped with `create-t3-app`, but I use the app directory. The use of the
+create-t3-app was to easily create the best starting point for a type-safe NextJS application.
 
-## How do I deploy this?
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+## Features
+
+- New `/app` dir
+- Routing, layouts
+- Data fetching, caching
+- Metadata
+- Server and client components
+- **MDX** for blog posts
+- Styled with **Tailwind CSS**
+- Data validations with **Zod**
+- Written in **TypeScript**
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Installation -->
+
+## Installation
+
+1. Clone the repo
+
+```sh
+$ git clone https://github.com/PattyCoding123/next-blog.git
+```
+
+<br><br> 2. In the root directory, install the needed dependencies with [npm](https://www.npmjs.com/):
+
+```sh
+$ npm install --save npm-install-global
+```
+
+with yarn
+
+```sh
+$ yarn
+```
+
+with pnpm
+
+```sh
+$ pnpm install
+```
+
+<!-- ROADMAP -->
+
+## Roadmap
+
+- [x] Add MDX support
+- [x] Responsive styles
+- [x] Dark mode
+- [ ] Utilize Suspense and Error Boundaries
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE.md` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Authors -->
+
+## Authors
+
+- Patrick Ducusin
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[license-shield]: https://img.shields.io/github/license/PattyCoding123/next-blog?color=%23808080&style=for-the-badge
+[license-url]: https://github.com/PattyCoding123/next-blog/blob/main/LICENSE.md
