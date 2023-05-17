@@ -1,12 +1,13 @@
-import "@/styles/globals.css";
 import { type Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+import "@/styles/globals.css";
 
 import MainNavbar from "@/components/main-nav";
 import ProfilePicture from "@/components/profile-picture";
 import { siteConfig } from "@/config/site";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
+import MainFooter from "@/components/main-footer";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </header>
           <div className="relative flex min-h-screen flex-col">
             <div className="flex-1">{children}</div>
+            <MainFooter />
           </div>
         </ThemeProvider>
       </body>

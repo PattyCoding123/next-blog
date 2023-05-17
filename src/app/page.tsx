@@ -7,7 +7,7 @@ export const revalidate = 86400; // Revalidate once a day
 export default function Home() {
   return (
     <main className="mx-auto px-6">
-      <p className="mb-12 mt-12 text-center text-3xl text-foreground">
+      <p className="my-12 text-center text-3xl text-foreground">
         Hello and Welcome to my Blog!
       </p>
       {/* @ts-expect-error Async Server Component */}
