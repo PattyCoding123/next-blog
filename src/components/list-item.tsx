@@ -3,13 +3,13 @@ import Link from "next/link";
 import { type BlogPostMetadata } from "@/lib/validators/blog-post";
 import getFormattedDate from "@/lib/get-formatted-date";
 
-type Props = {
+interface ListItemProps {
   post: BlogPostMetadata;
-};
+}
 
 // Return a list item for a blog post with a link to the post.
 // Each post will have a title and date.
-export default function ListItem({ post }: Props) {
+export default function ListItem({ post }: ListItemProps) {
   const { id, title, date } = post;
   const formattedDate = getFormattedDate(date);
 
