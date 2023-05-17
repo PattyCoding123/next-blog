@@ -46,7 +46,7 @@ export default async function TagPage({ params: { tag } }: TagPageProps) {
 
   if (!tagPosts.length) {
     return (
-      <main className="text-center">
+      <main className="text-center mx-auto px-6">
         <p className="mt-10">Sorry, no posts were found for this tag.</p>
         <Link className="flex items-center justify-start" href="/">
           <Icons.arrowLeft />
