@@ -129,7 +129,7 @@ export async function getPostsMetadata(): Promise<
       }
     }
 
-    return postsMetadata;
+    return postsMetadata.sort((a, b) => (a.date < b.date ? 1 : -1));
   } catch (e) {
     new Response("Error fetching posts meta data", { status: 500 });
   }
