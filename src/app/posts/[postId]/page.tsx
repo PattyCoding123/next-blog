@@ -26,9 +26,7 @@ export async function generateStaticParams() {
   if (!postsMetadata) return []; // Incase there are no posts.
 
   return postsMetadata.map((metadata) => ({
-    params: {
-      postId: metadata.id,
-    },
+    postId: metadata.id,
   }));
 }
 
