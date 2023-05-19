@@ -7,9 +7,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://next-blog-eight-teal-26.vercel.app/">
     <img src="assets/display-website.png" alt="website display"/>
-  </a>
 </p>
 <div align="center">
   
@@ -17,9 +15,6 @@
 
   <p align="center">
     A blog website that utilizes many of the new features in Next13, including the now stable app directory! The main feature includes compiling MDX files to display on the website. I will try to create as many posts as I can for this website. 
-    <br />
-    <br />
-    <a href="https://next-blog-eight-teal-26.vercel.app/">Live Website</a>
   </p>
 </div>
 
